@@ -12,4 +12,4 @@ cd "${INPUT_DIRECTORY}"
 # and https://github.com/actions/runner-images/issues/6775#issuecomment-1410270956
 git config --system --add safe.directory "*"
 
-python3.10 -m pyc_wheel "${INPUT_FILENAME}"
+python3.12 -m pyc_wheel "${INPUT_FILENAME}"
