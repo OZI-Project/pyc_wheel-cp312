@@ -25,4 +25,4 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: oziproject/pyc_wheel:${{ github.event.release.tag_name }}-supported-python-2023
+          tags: oziproject/${{ github.event.repository.name }}:${{ github.event.release.tag_name }}-supported-python-2023
