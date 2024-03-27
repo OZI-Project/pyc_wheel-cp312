@@ -1,0 +1,21 @@
+---
+name: "CPython 3.10 Wheel Compiler"
+
+description: "Compile Python Wheels on GitHub actions."
+
+inputs:
+  directory:
+    description: |
+      Sub-directory to cd into before running semantic-release publish
+    default: "./dist/"
+    required: false
+
+  filename:
+    description: |
+      The wheel file to compile.
+    required: true
+    default: "*.whl"
+
+runs:
+  using: "docker"
+  image: "Dockerfile"
