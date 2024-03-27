@@ -1,5 +1,5 @@
 ---
-name: "CPython 3.10 Wheel Compiler"
+name: "CPython 3.12 Wheel Compiler"
 
 description: "Compile Python Wheels on GitHub actions."
 
