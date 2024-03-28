@@ -12,4 +12,4 @@ cd "${INPUT_DIRECTORY}"
 # and https://github.com/actions/runner-images/issues/6775#issuecomment-1410270956
 git config --system --add safe.directory "*"
 
-python -m pyc_wheel "${INPUT_FILENAME}"
+/root/.pyenv/versions/$(/root/.pyenv/bin/pyenv latest 3.12)/bin/python -m pyc_wheel "${INPUT_FILENAME}"
