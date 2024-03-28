@@ -1,6 +1,6 @@
 
 FROM oziproject/supported-python:2023
-COPY . .
+COPY ./pyc_wheel .
 RUN chmod +x action.sh
 RUN set -ex \
   && apt-get update \
