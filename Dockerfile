@@ -3,7 +3,7 @@ FROM oziproject/supported-python:2023
 
 RUN set -ex \
     && apt-get update \
-    && apt-get install --no-install-recommends -y git-lfs
+    && apt-get install --no-install-recommends -y git
 
 RUN mkdir /pyc_wheel
 WORKDIR /pyc_wheel
