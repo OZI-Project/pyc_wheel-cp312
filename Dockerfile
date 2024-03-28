@@ -1,10 +1,11 @@
 
 FROM oziproject/supported-python:2023
-RUN mkdir /pyc_wheel
-WORKDIR /pyc_wheel
-COPY action.sh /pyc_wheel/action.sh
-COPY . /pyc_wheel/
-RUN chmod +x /pyc_wheel/action.sh
-ENV PATH /root/.pyenv/versions/$(/root/.pyenv/bin/pyenv latest 3.12)/bin:${PATH}
-RUN python3.12 -m pip install .
-ENTRYPOINT ["bash", "/pyc_wheel/action.sh" ]
+COPY . .
+RUN chmod +x action.sh
+RUN set -ex \
+  && apt-get update \
+  && apt-get install -y --no-install-recommends git \
+  && rm -rf /var/lib/apt/lists/* \
+  && rm -f /var/cache/apt/archives/*.deb
+RUN /root/.pyenv/versions/$(/root/.pyenv/bin/pyenv latest 3.12)/bin/python -m venv .venv
+ENTRYPOINT bash -c "source .venv/bin/activate && python -m pip install . && bash action.sh"
