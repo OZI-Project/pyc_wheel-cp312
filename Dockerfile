@@ -8,5 +8,5 @@ RUN set -ex \
   && apt-get install -y --no-install-recommends git \
   && rm -rf /var/lib/apt/lists/* \
   && rm -f /var/cache/apt/archives/*.deb
-RUN /root/.pyenv/versions/$(/root/.pyenv/bin/pyenv latest 3.12)/bin/python -m pip install .
+RUN /root/.pyenv/versions/$(/root/.pyenv/bin/pyenv latest 3.12)/bin/python -m pip install ./pyc_wheel
 ENTRYPOINT ["bash", "action.sh"]
