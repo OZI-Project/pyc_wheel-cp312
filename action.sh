@@ -4,7 +4,7 @@ set -e
 
 # Copy inputs into correctly-named environment variables
 export GH_TOKEN="${INPUT_GITHUB_TOKEN}"
-export PYTHON_VERSION="$1"
+source /python-version.conf
 # Change to configured directory
 cd "${INPUT_DIRECTORY}"
 
@@ -12,4 +12,4 @@ cd "${INPUT_DIRECTORY}"
 # and https://github.com/actions/runner-images/issues/6775#issuecomment-1410270956
 git config --system --add safe.directory "*"
 
-/root/.pyenv/versions/${PYTHON_VERSION}/bin/python -m pyc_wheel "${INPUT_FILENAME}"
+/root/.pyenv/versions/$PYTHON_VERSION/bin/python -m pyc_wheel "${INPUT_FILENAME}"
